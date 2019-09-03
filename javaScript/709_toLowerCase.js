@@ -2,6 +2,11 @@
  * @param {string} str
  * @return {string}
  */
+
+/* ===================================================
+    solution attempt without built-in methods
+    run time: 52 ms
+===================================================== */
 var toLowerCase = function(str) {
     var newStr = "";
 
@@ -16,4 +21,18 @@ var toLowerCase = function(str) {
     }
 
     return newStr;
+};
+
+/* ===================================================
+    solution attempt using built-in methods
+    run time: 44 ms
+===================================================== */
+var toLowerCase = function(str) {
+    for (var i = 0; i < str.length; i++) {
+        // check if current character is a capital letter
+        if (/[A-Z]/.test(str.charAt(i))) {
+            str = str.replace(str.charAt(i), str.charAt(i).toLowerCase());
+        }
+    }
+    return str;
 };
